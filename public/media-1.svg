@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CA9365"/>
+      <stop offset="100%" stop-color="#C18763"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g1)"/>
+  <g fill="#ffffff" fill-opacity="0.85" font-family="Georgia, serif" text-anchor="middle">
+    <text x="600" y="400" font-size="54">Photo Placeholder</text>
+  </g>
+</svg>

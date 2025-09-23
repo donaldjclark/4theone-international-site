@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -7,21 +8,25 @@ import Events from "./pages/Events";
 import Partner from "./pages/Partner";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-ivory text-charcoal">
+      <div className="min-h-screen bg-ivory">
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/sermons" element={<Sermons />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/partner" element={<Partner />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/sermons" element={<Sermons />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/partner" element={<Partner />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   );

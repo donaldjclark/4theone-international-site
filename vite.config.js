@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: '/4theone-international-site/', // EXACTLY this if your repo is named that
   plugins: [react()],
+  build: {
+    outDir: 'docs' // GitHub Pages will use this folder
+  }
 })
