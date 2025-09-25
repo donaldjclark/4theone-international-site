@@ -28,7 +28,7 @@ export default function Footer() {
           <h4 className="font-semibold mb-3">Connect</h4>
           <ul className="space-y-2 text-white/80 text-sm">
             <li>
-              Email: <a href="mailto:donate@4theone.org" className="underline">Donate@4theOneInternational.org</a>
+              Email: <a href="mailto:Donate@4theOneInternational.org" className="underline">Donate@4theOneInternational.org</a>
             </li>
             <li>
               Give: <Link to="/partner" className="underline">Partner With Us</Link>
