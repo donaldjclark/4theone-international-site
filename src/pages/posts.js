@@ -3,7 +3,7 @@ export const posts = [
   {
     slug: "when-heaven-touched-earth-a-night-of-miracles-in-mumbai",
     title: "When Heaven Touched Earth: A Night of Miracles in Mumbai",
-    image: "/path-to-mosque-sunset.jpg",
+    image: "/4theone-international-site/path-to-mosque-sunset.jpg",
     category: "Featured",
     author: "John Smith",
     date: "December 10, 2024",
@@ -17,7 +17,7 @@ export const posts = [
   {
     slug: "the-heart-of-intercession",
     title: "The Heart of Intercession",
-    image: "/home-landscape-1.jpg",
+    image: "/4theone-international-site/heart-of-intercession.jpeg",
     category: "Devotional",
     author: "Jane Doe",
     date: "Dec 8, 2024",
@@ -31,7 +31,7 @@ export const posts = [
   {
     slug: "signs-wonders-miracles-in-berlin",
     title: "Signs, Wonders & Miracles in Berlin",
-    image: "/home-landscape-2.jpg",
+    image: "/4theone-international-site/signs-wonders.jpeg",
     category: "Testimony",
     author: "Alex Brown",
     date: "Dec 5, 2024",
@@ -45,7 +45,8 @@ export const posts = [
   {
     slug: "raising-the-next-generation",
     title: "Raising the Next Generation",
-    image: "/home-portrait.jpg",
+    image: "/4theone-international-site/next-generation.jpeg",
+    imageStyle: "object-[30%_top]",
     category: "Teaching",
     author: "Maria Gomez",
     date: "Dec 1, 2024",
@@ -59,7 +60,7 @@ export const posts = [
   {
     slug: "the-prophetic-edge",
     title: "The Prophetic Edge",
-    image: "/home-portrait-2.jpg",
+    image: "/4theone-international-site/prophetic.jpeg",
     category: "Teaching",
     author: "Samuel Lee",
     date: "Nov 20, 2024",
@@ -73,7 +74,7 @@ export const posts = [
   {
     slug: "healing-in-the-marketplace",
     title: "Healing in the Marketplace",
-    image: "/home-landscape-3.jpg",
+    image: "/4theone-international-site/healing.jpg",
     category: "Testimony",
     author: "Elena Park",
     date: "Nov 12, 2024",
@@ -87,7 +88,7 @@ export const posts = [
   {
     slug: "fire-on-the-mission-field",
     title: "Fire on the Mission Field",
-    image: "/home-landscape-4.jpg",
+    image: "/4theone-international-site/fire.jpeg",
     category: "Missions",
     author: "Team 4theOne",
     date: "Oct 30, 2024",

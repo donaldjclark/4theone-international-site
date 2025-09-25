@@ -83,7 +83,7 @@ export default function DonateSection() {
           className="w-full bg-gradient-to-r from-primary to-clay text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
           onClick={() =>
             window.open(
-              "https://buy.stripe.com/YOUR-LINK-HERE",
+              "https://buy.stripe.com/YOUR-LINK-HERE?memo=4theOne",
               "_blank",
               "noopener,noreferrer"
             )
@@ -96,7 +96,7 @@ export default function DonateSection() {
         {/* Payment options */}
         <div className="grid grid-cols-1 gap-3">
           <a
-            href="https://buy.stripe.com/YOUR-LINK-HERE"
+            href="https://buy.stripe.com/YOUR-LINK-HERE?memo=4theOne"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-primary to-clay text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-center"
@@ -109,8 +109,9 @@ export default function DonateSection() {
             method="post"
             target="_blank"
           >
-            <input type="hidden" name="business" value="donate@4theone.org" />
+            <input type="hidden" name="business" value="4theoneinternational@gmail.com" />
             <input type="hidden" name="currency_code" value="USD" />
+            <input type="hidden" name="item_name" value="4theOne" />
             <button
               type="submit"
               className="w-full border-2 border-blue-500 text-blue-500 font-bold px-8 py-4 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
@@ -121,7 +122,7 @@ export default function DonateSection() {
 
           <div className="grid grid-cols-2 gap-2">
             <a
-              href="https://venmo.com/YourUsername"
+              href="https://venmo.com/PraiseTabernacle?txn=pay&amount=&note=4theOne"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sky-600 font-bold underline text-left"
@@ -129,7 +130,7 @@ export default function DonateSection() {
               Venmo
             </a>
             <a
-              href="https://cash.app/$YourTag"
+              href="https://cash.app/$YourTag?note=4theOne"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-600 font-bold underline text-left"
@@ -143,7 +144,7 @@ export default function DonateSection() {
               title="Copy BTC address"
               onClick={() => {
                 navigator.clipboard.writeText(
-                  "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+                  "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa (4theOne)"
                 );
                 alert("BTC address copied!");
               }}
@@ -154,7 +155,7 @@ export default function DonateSection() {
             <button
               type="button"
               className="text-left font-bold text-orange-700 underline"
-              onClick={() => alert("Search donate@4theone.org in Amazon Pay")}
+              onClick={() => alert("Search donate@4theone.org in Amazon Pay (memo: 4theOne)")}
             >
               Amazon Pay
             </button>

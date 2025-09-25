@@ -22,7 +22,9 @@ export default function SubscribeCard() {
           action="https://formspree.io/f/mpwywpvy"
           method="POST"
           className="w-full max-w-xl flex flex-col items-stretch gap-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 p-3"
-          onSubmit={() => setEmail("")}
+          onSubmit={(e) => {
+            setTimeout(() => setEmail(""), 1000);
+          }}
         >
           <label className="sr-only" htmlFor="subscribe-email">
             Email address

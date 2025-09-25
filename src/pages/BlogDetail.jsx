@@ -11,15 +11,25 @@ function PostAside({ currentSlug, posts }) {
           Get the latest revival stories and devotionals delivered to your
           inbox.
         </p>
-        <div className="flex gap-3">
-          <input
-            className="flex-1 rounded-lg p-3 text-charcoal"
-            placeholder="Your email"
-          />
-          <button className="bg-primary text-white px-4 py-2 rounded-lg">
-            Subscribe
-          </button>
-        </div>
+        <form
+  action="https://formspree.io/f/mpwywpvy"
+  method="POST"
+  className="flex gap-3"
+>
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Your email"
+    className="flex-1 rounded-lg p-3 text-charcoal"
+  />
+  <button
+    type="submit"
+    className="bg-primary text-white px-4 py-2 rounded-lg"
+  >
+    Subscribe
+  </button>
+</form>
       </div>
 
       <div className="bg-white rounded-xl p-6 shadow">
@@ -82,7 +92,7 @@ export default function BlogDetail() {
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-96 object-cover"
+                className={`w-full h-96 object-cover rounded-lg ${post.imageStyle || 'object-center'}`}
               />
             )}
             <div className="p-8">

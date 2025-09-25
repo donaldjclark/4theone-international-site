@@ -53,6 +53,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     className="w-full px-4 py-3 rounded-lg border-2 border-slate/20 focus:border-primary focus:outline-none"
+                    required
                     placeholder="your@email.com"
                   />
                 </div>
@@ -108,6 +109,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 focus:border-sand focus:outline-none text-white placeholder-white/60"
+                    required
                     placeholder="your@email.com"
                   />
                 </div>
