@@ -21,9 +21,18 @@ export default function SubscribeCard() {
         <form
           action="https://formspree.io/f/mpwywpvy"
           method="POST"
+          name="subscribe-form"
           className="w-full max-w-xl flex flex-col items-stretch gap-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 p-3"
           onSubmit={(e) => {
-            setTimeout(() => setEmail(""), 1000);
+            e.preventDefault();
+            fetch("https://formspree.io/f/mpwywpvy", {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email }),
+            }).then(() => setEmail(""));
           }}
         >
           <label className="sr-only" htmlFor="subscribe-email">

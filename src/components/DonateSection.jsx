@@ -88,7 +88,9 @@ export default function DonateSection() {
               "noopener,noreferrer"
             )
           }
-          aria-label={`Give ${activeAmount ? `$${activeAmount} ` : ""}${frequency}`}
+          aria-label={`Give ${
+            activeAmount ? `$${activeAmount} ` : ""
+          }${frequency}`}
         >
           Give Now
         </button>
@@ -109,7 +111,11 @@ export default function DonateSection() {
             method="post"
             target="_blank"
           >
-            <input type="hidden" name="business" value="4theoneinternational@gmail.com" />
+            <input
+              type="hidden"
+              name="business"
+              value="4theoneinternational@gmail.com"
+            />
             <input type="hidden" name="currency_code" value="USD" />
             <input type="hidden" name="item_name" value="4theOne" />
             <button
@@ -155,7 +161,9 @@ export default function DonateSection() {
             <button
               type="button"
               className="text-left font-bold text-orange-700 underline"
-              onClick={() => alert("Search donate@4theone.org in Amazon Pay (memo: 4theOne)")}
+              onClick={() =>
+                alert("Search donate@4theone.org in Amazon Pay (memo: 4theOne)")
+              }
             >
               Amazon Pay
             </button>

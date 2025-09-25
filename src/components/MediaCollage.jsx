@@ -45,13 +45,15 @@ export default function MediaCollage({
     }
     return null;
   };
-  // Predefined tile spots across a 6x6 grid. We render up to 4 items.
+  // Predefined tile spots across a stylized 6x6 grid. We render up to 4 items.
   const spots = [
     "col-span-3 row-span-3", // top-left
-    "col-start-4 col-span-3 row-span-2", // top-right
-    "col-span-2 row-start-4 row-span-3", // bottom-left
-    "col-start-3 col-span-4 row-start-4 row-span-3", // bottom-right wide
+    "col-start-4 col-span-3 row-start-2 row-span-2", // top-right offset downward
+    "col-span-2 row-start-4 row-span-3", // bottom-left taller
+    "col-start-3 col-span-4 row-start-4 row-span-2", // bottom-right shorter
   ];
+
+  const tileGap = "0.75rem"; // Matches gap-3 so interior spacing stays consistent
 
   // Subtle background styles for each tile — always rendered behind media
   const bgStyles = [
@@ -67,7 +69,7 @@ export default function MediaCollage({
 
   const renderTile = (item, idx) => {
     const base = "w-full h-full object-cover";
-    const wrapper = `relative z-10 rounded-2xl overflow-hidden ${
+    const wrapper = `relative z-10 w-full h-full rounded-2xl overflow-hidden ${
       item?.type === "youtube"
         ? "shadow-xl border border-charcoal/10"
         : "shadow-lg"
@@ -110,11 +112,9 @@ export default function MediaCollage({
     }
 
     if (item.type === "youtube") {
-      // Poster-first YouTube tile. Click to swap to the player with autoplay.
       const YouTubeTile = () => {
         const [playing, setPlaying] = useState(false);
         const id = getYouTubeId(item.src);
-        // Compose embed src with autoplay when playing
         const baseEmbed =
           item.src.includes("/embed/") &&
           !item.src.includes("youtube.com/watch")
@@ -134,63 +134,63 @@ export default function MediaCollage({
 
         return (
           <div className={wrapper}>
-            {playing ? (
-              <iframe
-                className="w-full h-full"
-                src={embedSrc}
-                title={item.alt || "YouTube video"}
-                frameBorder="0"
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setPlaying(true)}
-                className="group relative w-full h-full text-left"
-                aria-label={item.alt ? `Play: ${item.alt}` : "Play video"}
-              >
-                {posterSrc ? (
-                  <img
-                    src={posterSrc}
-                    alt={item.alt || "video poster"}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    onError={(e) => {
-                      if (ytThumb && e.currentTarget.src !== ytThumb) {
-                        e.currentTarget.src = ytThumb;
-                      }
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full bg-black/20" />
-                )}
-
-                {/* Darken for contrast and add subtle top sheen */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
-                  aria-hidden="true"
+            <div className="relative w-full h-full">
+              {playing ? (
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={embedSrc}
+                  title={item.alt || "YouTube video"}
+                  frameBorder="0"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
                 />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setPlaying(true)}
+                  className="relative w-full h-full group text-left"
+                  aria-label={item.alt ? `Play: ${item.alt}` : "Play video"}
+                >
+                  {posterSrc ? (
+                    <img
+                      src={posterSrc}
+                      alt={item.alt || "video poster"}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        if (ytThumb && e.currentTarget.src !== ytThumb) {
+                          e.currentTarget.src = ytThumb;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 w-full h-full bg-black/20" />
+                  )}
 
-                {/* Play button */}
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/90 shadow-xl ring-1 ring-charcoal/10 group-hover:bg-white transition">
-                    <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="text-charcoal translate-x-[1px]"
-                    >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+                    aria-hidden="true"
+                  />
+
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/90 shadow-xl ring-1 ring-charcoal/10 group-hover:bg-white transition">
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="text-charcoal translate-x-[1px]"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
                   </span>
-                </span>
-              </button>
-            )}
+                </button>
+              )}
+            </div>
           </div>
         );
       };
@@ -212,7 +212,10 @@ export default function MediaCollage({
       <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/50 rounded-xl blur-2xl opacity-60 pointer-events-none -z-10" />
 
       {/* Grid layer with tiles */}
-      <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 gap-3 z-10">
+      <div
+        className="absolute inset-0 grid grid-cols-6 grid-rows-[repeat(6,minmax(0,1fr))] gap-[var(--tile-gap)] z-10"
+        style={{ "--tile-gap": tileGap }}
+      >
         {tiles.map((item, idx) => {
           const isYouTube = item && item.type === "youtube";
           return (
