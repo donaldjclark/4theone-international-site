@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import SubscribeCard from "../components/SubscribeCard";
 
 export default function Contact() {
   return (
@@ -27,13 +28,19 @@ export default function Contact() {
                 It's our honor to pray with you and believe God for breakthrough
                 in your situation.
               </p>
-              <form className="space-y-6">
+              <form
+                action="https://formspree.io/f/mpwywpvy"
+                method="POST"
+                className="space-y-6"
+              >
+                <input type="hidden" name="_subject" value="Prayer Request Submission" />
                 <div>
                   <label className="block text-charcoal font-semibold mb-2">
                     Your Name
                   </label>
                   <input
                     type="text"
+                    name="name"
                     className="w-full px-4 py-3 rounded-lg border-2 border-slate/20 focus:border-primary focus:outline-none"
                     placeholder="Enter your name"
                   />
@@ -44,6 +51,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full px-4 py-3 rounded-lg border-2 border-slate/20 focus:border-primary focus:outline-none"
                     placeholder="your@email.com"
                   />
@@ -53,6 +61,7 @@ export default function Contact() {
                     Prayer Request
                   </label>
                   <textarea
+                    name="message"
                     rows="5"
                     className="w-full px-4 py-3 rounded-lg border-2 border-slate/20 focus:border-primary focus:outline-none resize-none"
                     placeholder="Share your prayer need with us..."
@@ -74,13 +83,19 @@ export default function Contact() {
                 Have questions about ministry, want to invite us to your city,
                 or just want to connect?
               </p>
-              <form className="space-y-6">
+              <form
+                action="https://formspree.io/f/mpwywpvy"
+                method="POST"
+                className="space-y-6"
+              >
+                <input type="hidden" name="_subject" value="General Contact Submission" />
                 <div>
                   <label className="block text-white font-semibold mb-2">
                     Name
                   </label>
                   <input
                     type="text"
+                    name="name"
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 focus:border-sand focus:outline-none text-white placeholder-white/60"
                     placeholder="Your name"
                   />
@@ -91,6 +106,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 focus:border-sand focus:outline-none text-white placeholder-white/60"
                     placeholder="your@email.com"
                   />
@@ -99,7 +115,10 @@ export default function Contact() {
                   <label className="block text-white font-semibold mb-2">
                     Subject
                   </label>
-                  <select className="w-full px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 focus:border-sand focus:outline-none text-white">
+                  <select
+                    name="topic"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 focus:border-sand focus:outline-none text-white"
+                  >
                     <option value="">Select a subject</option>
                     <option value="invitation">Ministry Invitation</option>
                     <option value="partnership">Partnership Inquiry</option>
@@ -112,6 +131,7 @@ export default function Contact() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows="4"
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border-2 border-white/20 focus:border-sand focus:outline-none resize-none text-white placeholder-white/60"
                     placeholder="Your message..."
@@ -137,7 +157,7 @@ export default function Contact() {
             <div>
               <div className="text-4xl mb-4">📧</div>
               <h3 className="text-xl font-semibold mb-2">Email</h3>
-              <p className="opacity-90">info@4theone.org</p>
+              <p className="opacity-90">4theOneinternational@gmail.com</p>
             </div>
             <div>
               <div className="text-4xl mb-4">📱</div>
@@ -169,6 +189,12 @@ export default function Contact() {
               <p className="opacity-90">24/7 prayer available</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-br from-ivory to-sand">
+        <div className="max-w-4xl mx-auto px-6">
+          <SubscribeCard />
         </div>
       </section>
 

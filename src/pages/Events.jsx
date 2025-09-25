@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import { events } from "../data/events";
+import EventDescription from "../components/EventDescription";
 
 export default function Events() {
   return (
@@ -28,64 +30,42 @@ export default function Events() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Fire & Glory Conference",
-                date: "March 15-17, 2025",
-                location: "Los Angeles, CA",
-                type: "Conference",
-                description:
-                  "Three days of powerful worship, prophetic ministry, and supernatural encounters.",
-              },
-              {
-                title: "European Revival Tour",
-                date: "April 2025",
-                location: "Multiple Cities",
-                type: "Tour",
-                description:
-                  "Bringing the fire of revival to major cities across Europe.",
-              },
-              {
-                title: "Youth Awakening",
-                date: "May 10, 2025",
-                location: "Phoenix, AZ",
-                type: "Youth Event",
-                description:
-                  "A special gathering focused on igniting the next generation for Jesus.",
-              },
-              {
-                title: "Supernatural School",
-                date: "June 20-24, 2025",
-                location: "Online",
-                type: "Training",
-                description:
-                  "5-day intensive training in supernatural ministry and spiritual gifts.",
-              },
-            ].map((event, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-ivory to-sand rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {event.type}
-                  </span>
-                  <span className="text-slate text-sm">{event.date}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-charcoal mb-2">
-                  {event.title}
-                </h3>
-                <p className="text-primary font-semibold mb-3">
-                  📍 {event.location}
-                </p>
-                <p className="text-slate mb-6">{event.description}</p>
-                <div className="flex gap-3">
-                  <button className="bg-gradient-to-r from-primary to-clay text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex-1">
-                    Register Now
-                  </button>
-                  <button className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors duration-300">
-                    Learn More
-                  </button>
+            {events.map((event) => (
+              <div key={event.slug} className="block">
+                <div className="bg-gradient-to-br from-ivory to-sand rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {event.type}
+                    </span>
+                    <span className="text-slate text-sm">{event.date}</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-charcoal mb-2">
+                    {event.title}
+                  </h3>
+                  <p className="text-primary font-semibold mb-3">
+                    📍 {event.location}
+                  </p>
+                  <EventDescription
+                    text={event.description}
+                    className="mb-6"
+                    toggleClass="text-copper"
+                  />
+                  <div className="flex gap-3">
+                    <a
+                      href={event.registrationLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-gradient-to-r from-primary to-clay text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex-1 text-center"
+                    >
+                      Register Now
+                    </a>
+                    <Link
+                      to={`/events/${event.slug}`}
+                      className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors duration-300"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

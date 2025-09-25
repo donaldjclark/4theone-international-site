@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import YouTubePosterPlayer from "../components/YouTubePosterPlayer";
 
 export default function Sermons() {
   return (
@@ -13,6 +14,41 @@ export default function Sermons() {
             Experience powerful messages that ignite revival fire and equip you
             to carry God's presence.
           </p>
+        </div>
+      </section>
+
+      {/* Featured Sermon */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-charcoal mb-3">
+              Featured Sermon
+            </h2>
+            <p className="text-lg text-slate">
+              Be strengthened by the Word and the testimony of Jesus
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="aspect-video">
+              <YouTubePosterPlayer
+                videoUrl="https://www.youtube.com/embed/2cvtmS8q_nE"
+                poster="/sermon-poster.jpg"
+                title="Featured Sermon"
+              />
+            </div>
+          </div>
+
+          <div className="text-center mt-6">
+            <a
+              href="https://youtu.be/2cvtmS8q_nE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-clay font-semibold underline-offset-4 hover:underline"
+            >
+              Watch on YouTube
+            </a>
+          </div>
         </div>
       </section>
 
