@@ -10,7 +10,7 @@ export default function Sermons() {
           <h1 className="text-5xl md:text-6xl font-bold mb-8">
             Watch & Be <span className="text-sand">Transformed</span>
           </h1>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-90">
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-95">
             Experience powerful messages that ignite revival fire and equip you
             to carry God's presence.
           </p>

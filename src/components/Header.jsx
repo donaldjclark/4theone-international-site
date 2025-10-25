@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import emblem from "../assets/emblem.svg";
 
 export default function Header() {
   const location = useLocation();
@@ -18,14 +19,17 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-clay rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg">4</span>
-            </div>
+            <img
+              src={emblem}
+              alt="4 the One emblem"
+              className="h-10 w-10 object-contain"
+            />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-charcoal tracking-wide">
-                4theOne International
-              </h1>
-              <p className="text-xs text-slate italic">Carrying Revival</p>
+              <img
+                src={`${import.meta.env.BASE_URL}header.svg`}
+                alt="4theOne International"
+                className="h-12 w-auto object-contain"
+              />
             </div>
           </Link>
 

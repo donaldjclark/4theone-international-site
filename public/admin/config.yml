@@ -1,0 +1,56 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    preview_path: "/blog/{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "Lowercase with hyphens, used in the blog URL"
+        pattern:
+          - "^[a-z0-9-]+$"
+          - "Use lowercase letters, numbers, and hyphens only"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "MMMM D, YYYY"
+        time: false
+      - label: "Display Date"
+        name: "displayDate"
+        widget: "string"
+        required: false
+        hint: "Optional friendly label (e.g. Dec 8, 2024)"
+      - label: "Category"
+        name: "category"
+        widget: "string"
+      - label: "Author"
+        name: "author"
+        widget: "string"
+      - label: "Header Image"
+        name: "image"
+        widget: "image"
+      - label: "Image Style"
+        name: "imageStyle"
+        widget: "string"
+        required: false
+        hint: "Optional Tailwind object-position classes"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"

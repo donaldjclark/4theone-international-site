@@ -159,7 +159,7 @@ export default function Contact() {
             <div>
               <div className="text-4xl mb-4">📧</div>
               <h3 className="text-xl font-semibold mb-2">Email</h3>
-              <p className="opacity-90">4theOneinternational@gmail.com</p>
+              <p className="opacity-95">4theOneinternational@gmail.com</p>
             </div>
             <div>
               <div className="text-4xl mb-4">📱</div>
@@ -188,7 +188,7 @@ export default function Contact() {
             <div>
               <div className="text-4xl mb-4">🙏</div>
               <h3 className="text-xl font-semibold mb-2">Prayer Line</h3>
-              <p className="opacity-90">24/7 prayer available</p>
+              <p className="opacity-95">24/7 prayer available</p>
             </div>
           </div>
         </div>

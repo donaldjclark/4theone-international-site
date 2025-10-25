@@ -7,44 +7,45 @@ export default function Home() {
   return (
     <>
       {/* Hero Section - two columns */}
-      <section className="relative min-h-[90vh] bg-gradient-to-br from-lavender via-ivory to-sand flex items-center px-6 md:px-10 lg:px-16">
+      <section className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-lavender via-ivory to-sand flex items-center px-6 md:px-10 lg:px-16">
         {/* Background Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 -z-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgba(0,0,0,0.15)_1px,_transparent_0)] bg-[length:20px_20px]"></div>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-7xl mx-auto items-center">
+        <div className="relative z-40 grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-7xl mx-auto items-center">
           {/* Left: statement + CTAs */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-tight">
-              Encounter Jesus.
-              <br />
-              <span className="text-primary">Carry Revival.</span>
-              <br />
-              Host His Presence.
-            </h1>
-            <p className="text-xl md:text-2xl text-slate mb-10 max-w-3xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Empowering the global church through freedom and fire. Join us as
-              we see nations transformed by the power of God.
-            </p>
-
-            <div className="flex flex-col sm:flex-row lg:justify-start justify-center gap-6 mb-12">
-              <Link
-                to="/partner"
-                className="bg-gradient-to-r from-primary to-clay text-white font-bold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1.5 transition-all duration-300 glow-primary text-lg"
-              >
-                Partner With Us
-              </Link>
-              <Link
-                to="/sermons"
-                className="bg-white/80 backdrop-blur-sm text-primary border-2 border-primary font-bold px-10 py-4 rounded-full hover:bg-primary hover:text-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Watch Sermons
-              </Link>
+          <div className="relative text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="relative w-full max-w-3xl mx-auto lg:mx-0">
+              <h1 className="text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-tight">
+                Encounter Jesus.
+                <br />
+                <span className="text-primary">Carry Revival.</span>
+                <br />
+                Host His Presence.
+              </h1>
+              <p className="text-xl md:text-2xl text-slate mb-10 max-w-3xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Empowering the global church through freedom and fire. Join us
+                as we see nations transformed by the power of God.
+              </p>
+              <div className="flex flex-col sm:flex-row lg:justify-start justify-center gap-6 mb-12">
+                <Link
+                  to="/partner"
+                  className="bg-gradient-to-r from-primary to-clay text-white font-bold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1.5 transition-all duration-300 glow-primary text-lg"
+                >
+                  Partner With Us
+                </Link>
+                <Link
+                  to="/sermons"
+                  className="bg-white/80 backdrop-blur-sm text-primary border-2 border-primary font-bold px-10 py-4 rounded-full hover:bg-primary hover:text-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  Watch Sermons
+                </Link>
+              </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 max-w-md lg:max-w-none lg:max-w-2xl mx-auto lg:mx-0">
+            <div className="relative z-10 grid grid-cols-3 gap-4 max-w-md lg:max-w-2xl mx-auto lg:mx-0">
               <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow">
                 <div className="text-2xl md:text-3xl font-bold text-primary mb-1">
                   50+
@@ -107,8 +108,8 @@ export default function Home() {
 
       {/* Mission Statement Section */}
       <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="max-w-4xl mx-auto">
+        <div className="relative z-30 max-w-6xl mx-auto px-6 text-center">
+          <div className="max-w-4xl mx-auto relative z-40">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-8">
               Our Mission
             </h2>
@@ -160,11 +161,11 @@ export default function Home() {
 
       {/* Call to Action Section */}
       <section className="py-24 bg-gradient-to-r from-charcoal to-slate text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-40">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             The Fire is Spreading
           </h2>
-          <p className="text-xl mb-12 opacity-90">
+          <p className="text-xl mb-12 opacity-95">
             Join thousands of believers who are carrying the flame of revival to
             their communities. Your partnership helps fuel the movement that's
             transforming nations.

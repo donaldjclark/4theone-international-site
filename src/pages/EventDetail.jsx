@@ -23,11 +23,11 @@ export default function EventDetail() {
     <>
       <section className="py-20 bg-gradient-to-br from-secondary via-lavender to-primary text-white">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="opacity-90 mb-3">
+          <p className="opacity-95 mb-3">
             <Link to="/events" className="underline">Events</Link> / {event.type}
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{event.title}</h1>
-          <div className="opacity-90 flex gap-6 flex-wrap">
+          <div className="opacity-95 flex gap-6 flex-wrap">
             <span>📍 {event.location}</span>
             <span>📅 {event.date}</span>
           </div>

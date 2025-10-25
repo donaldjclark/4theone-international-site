@@ -11,7 +11,7 @@ export default function Events() {
           <h1 className="text-5xl md:text-6xl font-bold mb-8">
             Revival <span className="text-sand">Events</span>
           </h1>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-90">
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-95">
             Join us for life-changing encounters with Jesus. See where the fire
             of revival is spreading next.
           </p>
@@ -76,7 +76,7 @@ export default function Events() {
       <section className="py-24 bg-charcoal text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Host an Event</h2>
-          <p className="text-xl mb-12 opacity-90">
+          <p className="text-xl mb-12 opacity-95">
             Invite 4theOne International to bring revival fire to your city,
             church, or region.
           </p>
