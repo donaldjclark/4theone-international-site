@@ -80,7 +80,7 @@ export default function Home() {
               {
                 type: "youtube",
                 src: "https://www.youtube.com/embed/24b36rVhgys?rel=0&modestbranding=1",
-                poster: "/home-rural-women.jpg",
+                poster: "/home-landscape-2.jpg",
                 alt: "Featured message",
               },
               {
