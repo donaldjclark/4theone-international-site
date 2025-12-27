@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: '/4theone-international-site/', // <- GitHub Pages subpath
+  base: "/", // <- Root path for custom domain
   plugins: [react()],
   build: {
-    outDir: 'docs' // <- so GitHub Pages can find it
-  }
+    outDir: "docs", // <- so GitHub Pages can find it
+  },
 });
