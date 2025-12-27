@@ -80,7 +80,11 @@ export default function Home() {
               {
                 type: "youtube",
                 src: "https://www.youtube.com/embed/24b36rVhgys?rel=0&modestbranding=1",
+<<<<<<< HEAD
                 poster: "/sermon-poster.jpg",
+=======
+                poster: "/home-landscape-2.jpg",
+>>>>>>> aca7bb6278fd370cdf61a6387916fcd3587e3f7c
                 alt: "Featured message",
               },
               {
