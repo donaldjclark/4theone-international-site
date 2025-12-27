@@ -12,24 +12,24 @@ function PostAside({ currentSlug, posts }) {
           inbox.
         </p>
         <form
-  action="https://formspree.io/f/mpwywpvy"
-  method="POST"
-  className="flex gap-3"
->
-  <input
-    type="email"
-    name="email"
-    required
-    placeholder="Your email"
-    className="flex-1 rounded-lg p-3 text-charcoal"
-  />
-  <button
-    type="submit"
-    className="bg-primary text-white px-4 py-2 rounded-lg"
-  >
-    Subscribe
-  </button>
-</form>
+          action="https://formspree.io/f/mpwywpvy"
+          method="POST"
+          className="flex gap-3"
+        >
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Your email"
+            className="flex-1 rounded-lg p-3 text-charcoal"
+          />
+          <button
+            type="submit"
+            className="bg-primary text-white px-4 py-2 rounded-lg"
+          >
+            Subscribe
+          </button>
+        </form>
       </div>
 
       <div className="bg-white rounded-xl p-6 shadow">
@@ -75,50 +75,58 @@ export default function BlogDetail() {
   }
 
   return (
-    <div>
-      <header className="h-44 bg-gradient-to-r from-charcoal to-slate text-white flex items-center justify-center mb-12">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold">{post.title}</h1>
-          <p className="mt-2 text-sm">
+    <div className="pb-24 bg-gradient-to-b from-ivory/60 via-white to-ivory">
+      <header className="h-48 bg-gradient-to-r from-charcoal to-slate text-white flex items-center justify-center shadow-lg">
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl font-semibold uppercase tracking-[0.3em] text-white/80">
+            Revival Stories
+          </h1>
+          <p className="text-sm text-white/90">
             {post.category} • {post.date} • {post.author}
           </p>
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-6 -mt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <main className="lg:col-span-2 bg-white rounded-xl shadow overflow-hidden">
-            {post.image && (
-              <img
-                src={post.image}
-                alt={post.title}
-                className={`w-full h-96 object-cover rounded-lg ${post.imageStyle || 'object-center'}`}
-              />
-            )}
-            <div className="p-8">
-              <div className="mb-4">
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-semibold">
-                  {post.category}
-                </span>
-              </div>
+      <section className="relative max-w-6xl mx-auto px-6 -mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <article className="lg:col-span-2">
+            <div className="post-article">
+              <header className="text-center space-y-4">
+                <span className="post-kicker">4theOne International</span>
+                <h1>{post.title}</h1>
+                <p className="post-meta">
+                  {post.category} · {post.date} · {post.author}
+                </p>
+              </header>
+
+              <hr className="post-rule" />
+
+              {post.image && (
+                <figure className="post-hero">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className={post.imageStyle ?? ""}
+                  />
+                </figure>
+              )}
+
               <div
-                className="prose max-w-none text-charcoal"
+                className="post-body"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
-              <div className="mt-8">
-                <Link
-                  to="/blog"
-                  className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-clay transition-colors duration-300 font-semibold"
-                >
+
+              <div className="mt-12 text-center">
+                <Link to="/blog" className="post-btn">
                   Back to Blog
                 </Link>
               </div>
             </div>
-          </main>
+          </article>
 
-          <div>
+          <aside>
             <PostAside currentSlug={slug} posts={posts} />
-          </div>
+          </aside>
         </div>
       </section>
     </div>

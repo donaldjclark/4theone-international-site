@@ -1,8 +1,12 @@
 local_backend: true
 
 backend:
-  name: git-gateway
+  name: github
+  repo: donaldjclark/4theone-international-site
   branch: main
+  base_url: "/api"
+  auth_endpoint: "auth"
+  cms_label_prefix: "Admin"
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -54,3 +58,6 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        hint: |
+          Use normal Markdown plus these shortcodes for styled sections:
+          :::lead … :::, :::card … :::, :::cta … :::, and :::footer … :::.

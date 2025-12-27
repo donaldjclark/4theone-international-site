@@ -92,3 +92,84 @@
     -webkit-backdrop-filter: blur(10px);
   }
 }
+
+@layer components {
+  .post-article {
+    @apply relative mx-auto max-w-3xl px-6 py-14 rounded-3xl border border-primary/40 bg-white/95 shadow-[0_18px_46px_rgba(35,33,36,0.18)];
+  }
+
+  .post-article::before {
+    content: "";
+    @apply pointer-events-none absolute inset-1 rounded-3xl bg-gradient-to-b from-white/90 via-white/75 to-white/90 opacity-95;
+    z-index: 0;
+  }
+
+  .post-article > * {
+    @apply relative z-10;
+  }
+
+  .post-article .post-kicker {
+    @apply inline-flex items-center px-3 py-1 text-[0.75rem] tracking-[0.2em] uppercase text-copper border border-copper/40 bg-ivory/80 rounded-full;
+  }
+
+  .post-article .post-meta {
+    @apply mt-4 text-sm text-charcoal/70 uppercase tracking-[0.2em] font-semibold;
+  }
+
+  .post-article h1 {
+    @apply mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-charcoal text-center;
+  }
+
+  .post-article .post-lead {
+    @apply mt-6 text-lg md:text-xl font-semibold text-charcoal/90 text-center max-w-2xl mx-auto;
+  }
+
+  .post-article .post-rule {
+    @apply my-10 h-[3px] w-full border-0 rounded-full bg-gradient-to-r from-transparent via-primary/40 to-transparent shadow-[0_0_25px_rgba(202,147,101,0.35)];
+  }
+
+  .post-article .post-hero {
+    @apply mb-10 overflow-hidden rounded-2xl shadow-xl shadow-primary/20;
+  }
+
+  .post-article .post-hero img {
+    @apply w-full max-h-[420px] object-cover object-center;
+  }
+
+  .post-article .post-body {
+    @apply space-y-5 text-charcoal/90 leading-relaxed;
+  }
+
+  .post-article .post-body h2 {
+    @apply mt-8 text-2xl font-bold text-charcoal relative;
+  }
+
+  .post-article .post-body h2::after {
+    content: "";
+    @apply block mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-primary via-copper to-primary/80;
+  }
+
+  .post-article .post-body blockquote {
+    @apply my-6 border-l-4 border-primary bg-ivory/70 px-6 py-4 italic text-charcoal/90 shadow-inner shadow-primary/15;
+  }
+
+  .post-article .post-card {
+    @apply mb-4 rounded-3xl border border-primary/40 bg-white/90 p-6 shadow-[0_12px_28px_rgba(35,33,36,0.16)] backdrop-blur-custom space-y-3;
+  }
+
+  .post-article .post-cta {
+    @apply mt-12 text-center rounded-3xl border border-primary/40 bg-white/90 px-8 py-10 shadow-[0_20px_45px_rgba(35,33,36,0.18)] backdrop-blur-custom space-y-4;
+  }
+
+  .post-article .post-cta a {
+    @apply inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:-translate-y-0.5;
+  }
+
+  .post-article .post-footer {
+    @apply mt-10 text-center text-sm text-charcoal/70;
+  }
+
+  .post-article .post-btn {
+    @apply inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:-translate-y-0.5;
+  }
+}

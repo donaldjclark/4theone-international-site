@@ -7,6 +7,53 @@ if (typeof globalThis.Buffer === "undefined") {
   globalThis.Buffer = Buffer;
 }
 
+marked.use({
+  mangle: false,
+  headerIds: false,
+  extensions: [
+    {
+      name: "post-block",
+      level: "block",
+      start(src) {
+        const match = src.match(/^:::(?:card|cta|lead|footer)/m);
+        return match ? match.index : undefined;
+      },
+      tokenizer(src) {
+        const rule = /^:::(card|cta|lead|footer)\s*\n([\s\S]+?)\n:::\s*/;
+        const match = rule.exec(src);
+        if (!match) return undefined;
+        return {
+          type: "post-block",
+          raw: match[0],
+          blockType: match[1],
+          text: match[2].trim(),
+        };
+      },
+      renderer(token) {
+        const inner = marked
+          .parse(token.text, {
+            mangle: false,
+            headerIds: false,
+          })
+          .trim();
+
+        switch (token.blockType) {
+          case "lead":
+            return `<div class="post-lead">${inner}</div>`;
+          case "card":
+            return `<section class="post-card">${inner}</section>`;
+          case "cta":
+            return `<section class="post-cta">${inner}</section>`;
+          case "footer":
+            return `<footer class="post-footer">${inner}</footer>`;
+          default:
+            return inner;
+        }
+      },
+    },
+  ],
+});
+
 const postModules = import.meta.glob("../content/blog/*.md", {
   eager: true,
   import: "default",
@@ -38,7 +85,7 @@ const parsedPosts = Object.entries(postModules).map(([path, raw]) => {
     author: data.author || "",
     date: dateLabel,
     publishedAt: publishedAt ? publishedAt.toISOString() : null,
-    content: marked.parse(content.trim()),
+    content: marked.parse(content.trim(), { mangle: false, headerIds: false }),
   };
 });
 
